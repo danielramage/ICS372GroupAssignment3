@@ -1,4 +1,4 @@
-package edu.metrostate.ics372_assignment3;
+package edu.metrostate.app;
 
 import android.content.Context;
 

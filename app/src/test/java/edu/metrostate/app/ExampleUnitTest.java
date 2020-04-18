@@ -1,4 +1,4 @@
-package edu.metrostate.ics372_assignment3;
+package edu.metrostate.app;
 
 import org.junit.Test;
 
