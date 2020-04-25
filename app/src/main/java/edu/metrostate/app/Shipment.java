@@ -15,8 +15,10 @@ public class Shipment {
     private String shipmentMode;
     private float shipmentWeight;
     private int currentWarehouseID;
+    private int destinationWarehouseID;
     private String currentWarehouseName;
     private long receivedAt;
+    private long sentAt;
     private String readableReceivedAt;
     private String weightUnit;
     private WeightHelper weightHelper = new WeightHelper();
@@ -114,6 +116,15 @@ public class Shipment {
     }
 
     /**
+     * The getDestinationWarehouseID method returns the ID of the warehouse shipment was sent to
+     * Only used in shipment history
+     * @return The warehouse ID where the shipment is located, as an int
+     */
+    public final int getDestinationWarehouseID() {
+        return destinationWarehouseID;
+    }
+
+    /**
      * The getCurrentWarehouseName method returns the name of the warehouse the
      * shipment is currently located at.
      * @return The name of the shipment's warehouse, as a String
@@ -139,6 +150,16 @@ public class Shipment {
 
     public final long getReceivedAt() {
         return receivedAt;
+    }
+
+    /**
+     * The getSentAt method returns the timestamp the shipment
+     * left the warehouse. Used in history
+     * @return The shipment receipt timestamp, in ms since the UNIX Epoch
+     */
+
+    public final long getSentAt() {
+        return sentAt;
     }
 
     /**
@@ -178,6 +199,16 @@ public class Shipment {
     }
 
     /**
+     * The setWarehouseID method assigns warehouse ID to the shipment.
+     * It also calls a method that fetches the name of the warehouse belonging
+     * to that ID.
+     * @param whID The ID of the warehouse accepting the shipment
+     */
+    public final void setDestinationWarehouseID(int whID) {
+        destinationWarehouseID = whID;
+    }
+
+    /**
      * The setWarehouseName method is called by the setWarehouseID method to set
      * the warehouse name of the warehouse ID assigned to the shipment.
      * @param whID The ID of the warehouse accepting the shipment
@@ -201,6 +232,15 @@ public class Shipment {
     public final void setReceiptTime(long time) {
         receivedAt = time;
         setReadableReceiptTime(time);
+    }
+
+    /**
+     * The setSentTime method records the timestamp the shipment left
+     * the warehouse.
+     * Only used for history
+     */
+    public final void setSentAt(long time) {
+        sentAt = time;
     }
 
     /**

@@ -17,6 +17,7 @@ public class Warehouse {
 	private boolean shipMode;
 	private boolean receiving;
 	private ArrayList<Shipment> shipments = new ArrayList<>();
+	private ArrayList<Shipment> shipmentHistory = new ArrayList<>();
 
 	public Warehouse() {}
 	/**
@@ -115,6 +116,28 @@ public class Warehouse {
 	}
 
 	/**
+	 * The recordShipmentHistory method stores the shipment that has left the
+	 * warehouse in to the history.
+	 * @param shipment The existing shipment to be recorded at the warehouse
+	 */
+	public void recordShipmentHistory(Shipment shipment) {
+
+		shipmentHistory.add(shipment);
+	}
+
+	/**
+	 * The removeShipment method removes the shipment provided from the
+	 * warehouse's list of shipments.
+	 * @param shipment The existing shipment to be recorded at the warehouse
+	 * @return weather shipment was removed or not
+	 */
+	public boolean removeShipment(Shipment shipment) {
+
+		return shipments.remove(shipment);
+
+	}
+
+	/**
 	 * The isFreightEnabled method checks whether the warehouse is currently
 	 * receiving freight or not.
 	 * @return True if the warehouse is receiving freight and false if not
@@ -131,5 +154,15 @@ public class Warehouse {
 
 	public ArrayList<Shipment> getShipments() {
 		return shipments;
+	}
+
+	/**
+	 * The getShipmentHistory method returns the shipment history of the
+	 * warehouse.
+	 * @return The shipments located at the warehouse as an array list
+	 */
+
+	public ArrayList<Shipment> getShipmentHistory() {
+		return shipmentHistory;
 	}
 }

@@ -19,9 +19,10 @@ public class ShipTracker extends Application {
     public static void main(String[] args) throws IOException, ParseException {
         loadWarehouses("src/resources/warehouses.json");
         loadShipments("src/resources/shipments.json");
-        launch(args);
+        //launch(args);
     }
 
+    /*
     @Override
     public void start(Stage stage) throws Exception{
         stage.setTitle("ShipTracker");
@@ -29,6 +30,8 @@ public class ShipTracker extends Application {
         stage.setScene(createScene(loadMainPane()));
         stage.show();
     }
+
+     */
 
     /**
      * Loads the main fxml layout.
@@ -38,6 +41,7 @@ public class ShipTracker extends Application {
      * @return the loaded pane
      * @throws IOException if the pane could not be loaded
      */
+    /*
     private Pane loadMainPane() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setClassLoader(getClass().getClassLoader());
@@ -57,16 +61,21 @@ public class ShipTracker extends Application {
         return mainPane;
     }
 
+     */
+
     /**
      * Creates the main application scene.
      *
      * @param mainPane the main application layout
      * @return the created scene
      */
+    /*
     private Scene createScene(Pane mainPane) {
         Scene scene = new Scene(mainPane);
         return scene;
     }
+
+     */
 
     /**
      * The loadWarehouses method is a private method that loads all warehouses into the system
