@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-import javax.xml.bind.annotation.*;
+//import javax.xml.bind.annotation.*;
 
 /**
  * The Shipment class keeps track of the ID, weight, location, and other
