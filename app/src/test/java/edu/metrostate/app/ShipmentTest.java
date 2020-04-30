@@ -1,6 +1,9 @@
 package edu.metrostate.app;
 
 import org.junit.*;
+
+import edu.metrostate.app.model.Shipment;
+
 import static org.junit.Assert.*;
 
 class ShipmentTest {
