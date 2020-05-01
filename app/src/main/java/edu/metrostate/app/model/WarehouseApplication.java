@@ -14,13 +14,21 @@ public class WarehouseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+       // /Users/jigme/Desktop/Work_School/Courses/Spring/372/Android/GroupProject/ICS372GroupAssignment3/app/src/main/java/edu/metrostate/app/data/shipments.json
+
         try {
-            JsonHandler.loadWarehouses("data/warehouses.json", warehouseManager);
+           // JsonHandler.loadWarehouses("data/warehouses.json", warehouseManager);
+            System.out.println("calling loadShipments");
+           JsonHandler.loadWarehouses("warehouses.json", warehouseManager);
+           // JsonHandler.loadWarehouses("/edu/metrostate/app/model/warehouses.json", warehouseManager);
+
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
         try {
-            JsonHandler.loadShipments("data/shipments.json", warehouseManager);
+            JsonHandler.loadShipments("shipments.json", warehouseManager);
+            //JsonHandler.loadShipments("/edu/metrostate/app/model/shipments.json", warehouseManager);
+           // edu/metrostate/app/model/shipments.json
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
@@ -65,6 +73,7 @@ public class WarehouseApplication extends Application {
         for(Warehouse warehouse: ListOfWarehouses){
             allShipments.addAll(warehouse.getShipments());
         }
+        //System.out.println("Shipment test: " + allShipments.get(1));
         return allShipments;
     }
 

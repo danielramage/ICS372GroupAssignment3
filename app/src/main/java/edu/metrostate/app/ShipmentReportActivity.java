@@ -14,6 +14,8 @@ public class ShipmentReportActivity extends AppCompatActivity {
 
     private Button home;
 
+    private Button getShipments;
+
     private WarehouseApplication application;
 
     private ListView shipmentList;
@@ -26,11 +28,23 @@ public class ShipmentReportActivity extends AppCompatActivity {
 
 
         application = (WarehouseApplication)getApplication();
+        application.onCreate();
+
         shipmentList = findViewById(R.id.shipmentList);
 
         //todo: only one item passed??
         ShipmentAdapter adapter = new ShipmentAdapter(this, application.getAllShipments());
         shipmentList.setAdapter(adapter);
+
+
+        getShipments = (Button) findViewById(R.id.getShipments);
+        getShipments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showListActivity();
+            }
+        });
+
 
         home = (Button) findViewById(R.id.home);
         home.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +53,14 @@ public class ShipmentReportActivity extends AppCompatActivity {
                 homeActivity();
             }
         });
+    }
+
+    //todo: returns back to home screen
+    public void showListActivity() {
+//        Intent intent = new Intent(this, this);   //no need since not navigating to diff. activity
+//        startActivity(intent);
+
+      //  System.out.println("Printing data..");
     }
 
     //todo: returns back to home screen

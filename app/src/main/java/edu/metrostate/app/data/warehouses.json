@@ -1,0 +1,31 @@
+{
+  "warehouses": [
+    {
+      "warehouse_id": "1",
+      "air": true,
+      "rail": true,
+      "truck": true,
+      "ship": false,
+      "name": "Airport Main",
+      "receiving": true
+    },
+    {
+      "warehouse_id": "2",
+      "air": false,
+      "rail": false,
+      "truck": true,
+      "ship": true,
+      "name": "Warehouse 120",
+      "receiving": true
+    },
+    {
+      "warehouse_id": "3",
+      "air": false,
+      "rail": true,
+      "truck": true,
+      "ship": false,
+      "name": "Depot South",
+      "receiving": true
+    }
+  ]
+}
