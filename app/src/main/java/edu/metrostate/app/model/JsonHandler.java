@@ -81,8 +81,6 @@ public class JsonHandler {
         JSONObject shipmentsObject = (JSONObject) parser.parse(file);
         JSONArray shipmentsArray = (JSONArray) shipmentsObject.get("shipments");
 
-        System.out.println("Inside loadShipments");
-
         for ( Object shipment : shipmentsArray ) {
             JSONObject shipmentObject = (JSONObject) shipment;
 
@@ -95,14 +93,11 @@ public class JsonHandler {
             // Create the shipment
             Shipment newShipment = new Shipment(sID, sMode, sWeight, wID, rDate);
 
-
-
             // Add the shipment to the Warehouse's records
             for (Warehouse wh : warehouseMgr.getWarehouses()) {
                 if (wh.getWarehouseID() == wID) {
                     wh.recordShipment(newShipment);
                 }
-
             }
         }
     }
