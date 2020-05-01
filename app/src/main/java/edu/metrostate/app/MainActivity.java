@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        application = (WarehouseApplication)getApplication();
+
 
 
 
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        application = (WarehouseApplication)getApplication();
 
         //todo: Instantiating buttons, connecting them to respective views via id, registering each button
         shipmentReport = (Button) findViewById(R.id.shipmentReport);
