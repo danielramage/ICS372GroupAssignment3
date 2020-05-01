@@ -8,11 +8,14 @@ import java.util.ArrayList;
 import edu.metrostate.jsonsimple.ParseException;
 
 public class WarehouseApplication extends Application {
-    WarehouseManager warehouseManager = new WarehouseManager();
+
+    public WarehouseManager warehouseManager = new WarehouseManager();
+
 
     @Override
     public void onCreate() {
         super.onCreate();
+
 
         try {
             JsonHandler.loadWarehouses("data/warehouses.json", warehouseManager);
