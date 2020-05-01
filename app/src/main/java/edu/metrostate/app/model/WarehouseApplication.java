@@ -82,9 +82,14 @@ public class WarehouseApplication extends Application {
 
     public boolean addShipment(String shipID, String mode, float weight, int whID, long time){
         boolean shipmentAdded;
+        if(!warehouseManager.validWarehouse(whID)){
+            addWarehouse(whID, true, true, true, true, "Unnamed", true);
+
+        }
         Shipment shipment = new Shipment(shipID, mode, weight, whID, time);
         Warehouse warehouse = warehouseManager.getWarehouseByID(whID);
         shipmentAdded = warehouse.addIncomingShipment(shipment);
+        shipmentAdded = true;
         if(shipmentAdded){
             saveData();
         }

@@ -93,10 +93,17 @@ public class JsonHandler {
             // Create the shipment
             Shipment newShipment = new Shipment(sID, sMode, sWeight, wID, rDate);
 
+            //Check if Warehouse exist, if it doesn't create it
+            if(!warehouseMgr.validWarehouse(wID)){
+                Warehouse warehouse = new Warehouse(wID, true, true, true, true, "Unnamed", true);
+                warehouseMgr.addWarehouse(warehouse);
+            }
+
             // Add the shipment to the Warehouse's records
             for (Warehouse wh : warehouseMgr.getWarehouses()) {
                 if (wh.getWarehouseID() == wID) {
                     wh.recordShipment(newShipment);
+                    break;
                 }
             }
         }
