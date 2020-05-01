@@ -10,6 +10,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.metrostate.app.model.Shipment;
+
 public class ShipmentAdapter extends BaseAdapter {
 
     private ArrayList<Shipment> shipments = new ArrayList<>();
@@ -41,8 +43,8 @@ public class ShipmentAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         //todo: create View obj
 
-//        View view = LayoutInflater.from(context).inflate(R.layout.book_list_view, null);
-        View view = LayoutInflater.from(context).inflate(R.layout.shipment_list, null);
+//      View view = LayoutInflater.from(context).inflate(R.layout.book_list_view, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.shipment_list_view, null);
 
         //Use View obj to find data from view id then assign to TextView object(s)
 
@@ -56,7 +58,8 @@ public class ShipmentAdapter extends BaseAdapter {
 //        title.setText(book.getTitle());
 //        author.setText(book.getAuthor());
 
-        shipmentId = view.findViewById(R.id.shipmentId);
+         shipmentId.setText(shipment.getShipmentID());
+
 
         return view;
     }

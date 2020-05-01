@@ -9,7 +9,6 @@ import edu.metrostate.jsonsimple.ParseException;
 
 public class WarehouseApplication extends Application {
     WarehouseManager warehouseManager = new WarehouseManager();
-    private ArrayList<Shipment> shipments = new ArrayList<>();//todo
 
     @Override
     public void onCreate() {
