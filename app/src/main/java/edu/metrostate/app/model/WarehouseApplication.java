@@ -14,7 +14,7 @@ public class WarehouseApplication extends Application {
 
     @Override
     public void onCreate() {
-        super.onCreate(); WarehouseManager warehouseManager = new WarehouseManager();
+        super.onCreate();
 
 
         try {
