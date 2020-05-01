@@ -165,4 +165,8 @@ public class Warehouse {
 	public ArrayList<Shipment> getShipmentHistory() {
 		return shipmentHistory;
 	}
+
+	@Override
+	public String toString(){
+		return (this.getWarehouseName() + " " + this.getWarehouseID() + " " + airMode + " " + railMode + " " + truckMode + " " + shipMode + " " + receiving);}
 }
