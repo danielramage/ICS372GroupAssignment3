@@ -108,8 +108,7 @@ public class ShipTracker extends Application {
      * before the program is launched.
      * @param fileName The name of the file
      */
-    private static void loadShipments(String fileName) throws
-            IOException, ParseException {
+    private static void loadShipments(String fileName) throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         FileReader file = new FileReader(fileName);
         JSONObject shipmentsObject = (JSONObject) parser.parse(file);
