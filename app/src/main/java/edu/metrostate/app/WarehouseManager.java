@@ -1,8 +1,6 @@
-package edu.metrostate.app;
+package edu.metrostate.app.model;
 
-import java.io.*;
 import java.util.*;
-import edu.metrostate.jsonsimple.*;
 
 /**
  * The WarehouseManager class is responsible for keeping track of a group of
