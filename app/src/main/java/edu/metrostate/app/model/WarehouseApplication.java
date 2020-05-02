@@ -18,12 +18,12 @@ public class WarehouseApplication extends Application {
 
 
         try {
-            JsonHandler.loadWarehouses("data/warehouses.json", warehouseManager);
+            JsonHandler.loadWarehouses("warehouses.json", warehouseManager);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
         try {
-            JsonHandler.loadShipments("data/shipments.json", warehouseManager);
+            JsonHandler.loadShipments("shipments.json", warehouseManager);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
@@ -68,6 +68,7 @@ public class WarehouseApplication extends Application {
         for(Warehouse warehouse: ListOfWarehouses){
             allShipments.addAll(warehouse.getShipments());
         }
+        System.out.println("Printing shipments: " + allShipments.toString());
         return allShipments;
     }
 
