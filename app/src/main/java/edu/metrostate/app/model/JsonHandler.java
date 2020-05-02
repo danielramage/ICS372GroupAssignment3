@@ -1,5 +1,6 @@
 package edu.metrostate.app.model;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,10 +36,18 @@ public class JsonHandler {
         }
         warehouseContents.put("shipments", shipmentsArray);
 
+        try{
+            File createFile = new File(fileName);
+            createFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //Write JSON file
         //"src/resources/shipments.json"
-        try (FileWriter file =
-                     new FileWriter(fileName)) {
+        try {
+            File createFile = new File(fileName);
+            FileWriter file = new FileWriter(createFile);
             file.write(warehouseContents.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -63,9 +72,18 @@ public class JsonHandler {
         }
         warehouseContents.put("warehouses", warehouseArray);
 
+        try{
+            File createFile = new File(fileName);
+            createFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //Write JSON file
         //"src/resources/warehouses.json"
-        try (FileWriter file = new FileWriter(fileName)) {
+        try  {
+            File createFile = new File(fileName);
+            FileWriter file = new FileWriter(createFile);
             file.write(warehouseContents.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -77,7 +95,8 @@ public class JsonHandler {
     static void loadShipments(String fileName, WarehouseManager warehouseMgr) throws
             IOException, ParseException {
         JSONParser parser = new JSONParser();
-        FileReader file = new FileReader(fileName);
+        File readFile = new File(fileName);
+        FileReader file = new FileReader(readFile);
         JSONObject shipmentsObject = (JSONObject) parser.parse(file);
         JSONArray shipmentsArray = (JSONArray) shipmentsObject.get("shipments");
 

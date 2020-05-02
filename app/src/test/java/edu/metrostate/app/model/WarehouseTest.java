@@ -1,18 +1,17 @@
-package app.models;
+package edu.metrostate.app.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import java.util.ArrayList;
-
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 class WarehouseTest {
 	
 	static Warehouse warehouse;
 	static Warehouse closedWarehouse;
 
-	@BeforeAll
+	@Before
 	static void setUpBeforeClass() throws Exception {
 		
 		warehouse = new Warehouse(12345, true, true, true, true, "Warehouse", true);
