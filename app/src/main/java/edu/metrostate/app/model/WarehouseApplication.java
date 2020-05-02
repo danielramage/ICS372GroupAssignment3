@@ -8,27 +8,22 @@ import java.util.ArrayList;
 import edu.metrostate.jsonsimple.ParseException;
 
 public class WarehouseApplication extends Application {
-    WarehouseManager warehouseManager = new WarehouseManager();
+
+    public WarehouseManager warehouseManager = new WarehouseManager();
+
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-       // /Users/jigme/Desktop/Work_School/Courses/Spring/372/Android/GroupProject/ICS372GroupAssignment3/app/src/main/java/edu/metrostate/app/data/shipments.json
 
         try {
-           // JsonHandler.loadWarehouses("data/warehouses.json", warehouseManager);
-            System.out.println("calling loadShipments");
-           JsonHandler.loadWarehouses("warehouses.json", warehouseManager);
-           // JsonHandler.loadWarehouses("/edu/metrostate/app/model/warehouses.json", warehouseManager);
-
+            JsonHandler.loadWarehouses("data/warehouses.json", warehouseManager);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
         try {
-            JsonHandler.loadShipments("shipments.json", warehouseManager);
-            //JsonHandler.loadShipments("/edu/metrostate/app/model/shipments.json", warehouseManager);
-           // edu/metrostate/app/model/shipments.json
+            JsonHandler.loadShipments("data/shipments.json", warehouseManager);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
@@ -73,7 +68,6 @@ public class WarehouseApplication extends Application {
         for(Warehouse warehouse: ListOfWarehouses){
             allShipments.addAll(warehouse.getShipments());
         }
-        //System.out.println("Shipment test: " + allShipments.get(1));
         return allShipments;
     }
 
@@ -91,9 +85,14 @@ public class WarehouseApplication extends Application {
 
     public boolean addShipment(String shipID, String mode, float weight, int whID, long time){
         boolean shipmentAdded;
+        if(!warehouseManager.validWarehouse(whID)){
+            addWarehouse(whID, true, true, true, true, "Unnamed", true);
+
+        }
         Shipment shipment = new Shipment(shipID, mode, weight, whID, time);
         Warehouse warehouse = warehouseManager.getWarehouseByID(whID);
         shipmentAdded = warehouse.addIncomingShipment(shipment);
+        shipmentAdded = true;
         if(shipmentAdded){
             saveData();
         }

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.metrostate.app.AddWarehouseActivity">
@@ -14,11 +15,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="Add Warehouse"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#000000"
-        android:textSize="18sp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -27,12 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Warehouse Name"
         app:layout_constraintBottom_toTopOf="@+id/home"
-        app:layout_constraintEnd_toStartOf="@+id/enterShipment"
-        app:layout_constraintHorizontal_bias="0.864"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.196" />
@@ -43,50 +41,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="WarehouseID ID"
         app:layout_constraintBottom_toTopOf="@+id/home"
-        app:layout_constraintEnd_toStartOf="@+id/enterShipment"
-        app:layout_constraintHorizontal_bias="0.744"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.092" />
 
     <EditText
-        android:id="@+id/enterShipment"
-        android:layout_width="132dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/home"
+        android:id="@+id/addWarehouseName"
+        android:layout_width="227dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="41dp"
+        android:hint="Enter Warehouse Name"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154" />
-
-
-    <EditText
-        android:id="@+id/shipmentId"
-        android:layout_width="132dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/home"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.239" />
+        app:layout_constraintStart_toEndOf="@+id/warehouseNameTitle2"
+        app:layout_constraintTop_toBottomOf="@+id/addWarehouseID" />
 
     <Button
         android:id="@+id/addWarehouse"
@@ -122,6 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
+        android:onClick="onCheckBoxClicked"
         android:text="Air Shipping?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -135,6 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
+        android:onClick="onCheckBoxClicked"
         android:text="Truck Shipping?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,6 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
+        android:onClick="onCheckBoxClicked"
         android:text="Is Receiving Shipments?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -161,6 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
+        android:onClick="onCheckBoxClicked"
         android:text="Ship Shipping?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -174,6 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
+        android:onClick="onCheckBoxClicked"
         android:text="Rail Shipping?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,5 +159,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39" />
+
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/addWarehouse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/receivingShipments" />
+
+    <EditText
+        android:id="@+id/addWarehouseID"
+        android:layout_width="225dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="43dp"
+        android:hint="Enter Warehouse ID"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/warehouseIdTitle"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
