@@ -32,7 +32,6 @@ public class ShipmentReportActivity extends AppCompatActivity {
 
         shipmentList = findViewById(R.id.shipmentList);
 
-        //todo: only one item passed??
         ShipmentAdapter adapter = new ShipmentAdapter(this, application.getAllShipments());
         shipmentList.setAdapter(adapter);
 
@@ -55,15 +54,13 @@ public class ShipmentReportActivity extends AppCompatActivity {
         });
     }
 
-    //todo: returns back to home screen
-    public void showListActivity() {
-//        Intent intent = new Intent(this, this);   //no need since not navigating to diff. activity
-//        startActivity(intent);
 
-      //  System.out.println("Printing data..");
+    public void showListActivity() {
+
+  System.out.println("Printing data..");
     }
 
-    //todo: returns back to home screen
+    //returns back to home screen
     public void homeActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
